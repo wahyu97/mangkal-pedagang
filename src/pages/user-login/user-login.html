@@ -1,0 +1,21 @@
+<ion-header >
+  <ion-navbar  hideBackButton="true">
+    <ion-buttons end>
+     <!--<button ion-button icon-right color="light" (click)="dashboardPage()">SKIP<ion-icon name="ios-arrow-forward"></ion-icon></button>-->
+   </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <img src="assets/imgs/logo-splash.png" />
+
+
+  <ion-list no-lines padding-top>
+    <ion-item>
+      <ion-input type="text" [(ngModel)]="user.email" placeholder="Username"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="password" [(ngModel)]="user.password" placeholder="Password"></ion-input>
+    </ion-item>
+  </ion-list>
+  <button ion-button block round color="secondary" (click)="login(user)">Login</button>
+</ion-content>

@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Jadwal Mangkal
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding id="page5">
+ <ion-item id="jadwalMangkal-input8">
+      <ion-label>
+        Tempat :
+      </ion-label>
+      <ion-input type="text" placeholder="" [(ngModel)]="tempatMangkal"></ion-input>
+    </ion-item>
+    <ion-item id="jadwalMangkal-input9">
+      <ion-label>
+        Jam :
+      </ion-label>
+      <ion-input type="text" placeholder="" [(ngModel)]="jamMangkal"></ion-input>
+    </ion-item>
+  <button id="jadwalMangkal-button9" ion-button color="balanced" block (click)="addTempat()">
+    Simpan
+  </button>
+  
+</ion-content>

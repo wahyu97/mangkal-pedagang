@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Aplikasi Penjual
+      <button id="aplikasiPenjual-button3" ion-button clear color="positive" style="border-radius:10px 10px 10px 10px;" (click)="goToProfile()">
+        <ion-icon name="person"></ion-icon>
+      </button>
+    </ion-title>
+    
+  </ion-navbar>
+</ion-header>
+<ion-content padding id="page2" >
+  
+  <h4 id="aplikasiPenjual-heading1" style="color:#000000;">
+    Selamat Datang Kembali
+  </h4>
+     <ion-item id="aplikasiPenjual-toggle1">
+      <ion-label>
+        Status Mangkal :
+      </ion-label>
+      <ion-toggle color="balanced" checked="false" [(ngModel)]="toogleValue" (ionChange)="statusChange(value)"></ion-toggle>
+    </ion-item>
+
+  <ion-card id="aplikasiPenjual-card21" *ngFor="let mangkal of mangkal | async">
+    <ion-list>
+            <ion-item-sliding>
+              <ion-item>
+                <ion-item color="assertive" id="aplikasiPenjual-list-item4">
+                    <ion-icon name="walk" item-left></ion-icon>
+                    {{mangkal.tempatMangkal}}
+                  </ion-item>
+              </ion-item>
+              <ion-item-options side="right">
+                <button ion-button color="primary">
+                  <ion-icon name="ios-create"></ion-icon>
+                  Ubah
+                </button>
+                <button ion-button color="danger">
+                    <ion-icon name="trash"></ion-icon>
+                    Hapus
+                  </button>
+              </ion-item-options>
+            </ion-item-sliding>
+      <div id="aplikasiPenjual-markdown3" style="text-align:center;" class="show-list-numbers-and-dots">
+        <p style="color:#000000;font-size:10px;">
+          {{mangkal.jamMangkal}}
+        </p>
+      </div>
+      </ion-list>
+  </ion-card>
+
+  <ion-fab right bottom>
+    <button ion-fab (click)="addMangkal()"><ion-icon name="add"></ion-icon></button>
+  </ion-fab>
+  <div #map id="map"></div>
+</ion-content>
