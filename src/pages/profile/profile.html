@@ -1,9 +1,7 @@
 <ion-header>
   <ion-navbar>
     <ion-buttons start>
-      <button ion-button icon-only>
-        <ion-icon name="arrow-round-back"></ion-icon>
-      </button>
+      
     </ion-buttons>
     <ion-title>
       Profile
@@ -11,18 +9,22 @@
   </ion-navbar>
 </ion-header>
 <ion-content padding id="page3">
-  <ion-list id="profile-list2">
+  <ion-list id="profile-list2" *ngFor="let mangkal of mangkal | async">
+    <img src="{{mangkal.gambar}}">
     <ion-item color="none" id="profile-list-item9">
-      Nama :
+      Nama : {{mangkal.nama}}
     </ion-item>
     <ion-item color="none" id="profile-list-item10">
-      Telp :
+      Telp : {{mangkal.telp}}
     </ion-item>
     <ion-item color="none" id="profile-list-item11">
-      Jenis Dagangan :
+      Jenis Dagangan : {{mangkal.detail}}
     </ion-item>
   </ion-list>
-  <button id="profile-button5" ion-button color="positive">
+  <button id="profile-button5" ion-button color="positive" (click)="editProfile();">
     Edit
+  </button>
+  <button id="profile-button5" ion-button color="danger" (click)="logOut();">
+    Keluar Aplikasi
   </button>
 </ion-content>

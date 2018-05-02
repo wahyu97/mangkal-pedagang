@@ -1,20 +1,20 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { AngularFireList, AngularFireDatabase } from 'angularfire2/database';
-import * as firebase from 'Firebase';
 
 @Component({
   selector: 'page-jadwal-mangkal',
   templateUrl: 'jadwal-mangkal.html'
 })
 export class JadwalMangkalPage {
-
+  editStatus: boolean;
+	editKey: any;
   email: any;
   tempatMangkal: any;
   jamMangkal: any;
   mangkal : AngularFireList<any>;
-
-
+  editMangkal : any;
+	
   onViewDidLoad(){
     
   }
@@ -22,22 +22,38 @@ export class JadwalMangkalPage {
   constructor(public afdb: AngularFireDatabase,public navCtrl: NavController, private navParam: NavParams) {
     this.email = this.navParam.get("email");
     console.log(this.email);
-    this.mangkal = afdb.list('geolocations/pedagang/' + this.email);
-    //import email dari login kesini :)
+    this.mangkal = this.afdb.list('detail/pedagang/' + this.email+'/email');
+    this.editMangkal = navParam.get('item');
+  	if (this.editMangkal!=null) {
+  		this.editMangkal = true;
+  		this.editKey = this.editMangkal.id;
+  		this.tempatMangkal = this.editMangkal.tempatMangkal;
+  		this.jamMangkal = this.editMangkal.jamMangkal;
+  	}
   }
 
   addTempat(){
-    // var mangkalBaru = this.mangkal.push({});
-    // mangkalBaru.set({
-    //   tempatMangkal : this.tempatMangkal,
-    //   jamMangkal : this.jamMangkal
-    // })
-    firebase.database().ref('geolocations/' + 'pedagang/'+ this.email).update({
-      tempatMangkal : this.tempatMangkal,
-      jamMangkal: this.jamMangkal
-    });
+    if (this.editMangkal) {
+  		this.mangkal.update(this.editKey,{
+  			tempatMangkal: this.tempatMangkal,
+  			jamMangkal: this.jamMangkal,
+  			
+  		}).then(msg =>{
+  			console.log("Data Berhasil diupdate")
+        this.navCtrl.pop();
+  		}).catch(err =>{
+  			console.error("Data Gagal Disimpan")
+  		})
+  	}else{
+  	var newLaporan = this.mangkal.push({});
+  	newLaporan.set({
+  		id: newLaporan.key,
+  		tempatMangkal: this.tempatMangkal,
+  		jamMangkal : this.jamMangkal,
+      
+  	})
+	}
+	this.navCtrl.pop();
   }
-
-
-  
-}
+  }
+ 

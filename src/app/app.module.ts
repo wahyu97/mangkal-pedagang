@@ -17,7 +17,9 @@ import { AngularFireDatabaseModule  } from 'angularfire2/database';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { AuthProvider } from '../providers/auth/auth';
-
+import { Camera } from '@ionic-native/camera';
+import { Diagnostic } from '@ionic-native/diagnostic';
+import { GeocoderProvider } from '../providers/geocoder/geocoder';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyAiTx7Edwl-C9wiAiDK2A9bnfuNWrI-mWI",
@@ -62,6 +64,9 @@ export const firebaseConfig = {
     AuthProvider,
     Geolocation,
     Device,
+    Camera,
+    Diagnostic,
+    GeocoderProvider,
   ]
 })
 export class AppModule {}

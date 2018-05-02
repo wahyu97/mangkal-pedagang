@@ -6,30 +6,31 @@
   </ion-navbar>
 </ion-header>
 <ion-content padding id="page4">
-  <form id="profilEdit-form4">
     <ion-item id="profilEdit-input5">
       <ion-label>
         Nama :
       </ion-label>
-      <ion-input type="text" placeholder=""></ion-input>
+      <ion-input type="text" placeholder="" [(ngModel)]="namaPedagang"></ion-input>
     </ion-item>
     <ion-item id="profilEdit-input6">
       <ion-label>
         Telpon :
       </ion-label>
-      <ion-input type="number" placeholder=""></ion-input>
+      <ion-input type="number" placeholder="" [(ngModel)]="telpPedagang"></ion-input>
     </ion-item>
     <ion-item id="profilEdit-input7">
       <ion-label>
         Detail :
       </ion-label>
-      <ion-input type="text" placeholder=""></ion-input>
+      <ion-input type="text" placeholder="" [(ngModel)]="detailDagangan"></ion-input>
     </ion-item>
-  </form>
-  <button id="profilEdit-button7" ion-button color="balanced" block on-click="goToAplikasiPenjual()">
+    <button ion-button color="green" outline align="center" (click)="capture()"><ion-icon name="camera"></ion-icon>      Ambil Gambar</button>
+    <button ion-button color="green" outline align="center" (click)="openGalery()"><ion-icon name="images"></ion-icon>      Pilih dari Galeri</button>
+    <img src="{{ myPhoto }}">
+  <button id="profilEdit-button7" ion-button color="balanced" block on-click="addProfile()">
     Simpan
   </button>
-  <button id="profilEdit-button8" ion-button color="assertive" block>
+  <button id="profilEdit-button8" ion-button color="assertive" block (click)="cancel()">
     Batal
   </button>
 </ion-content>

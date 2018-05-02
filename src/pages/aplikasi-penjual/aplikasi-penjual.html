@@ -16,7 +16,7 @@
   </h4>
      <ion-item id="aplikasiPenjual-toggle1">
       <ion-label>
-        Status Mangkal :
+        Status Mangkal : {{mangkalStatus}}
       </ion-label>
       <ion-toggle color="balanced" checked="false" [(ngModel)]="toogleValue" (ionChange)="statusChange(value)"></ion-toggle>
     </ion-item>
@@ -27,24 +27,19 @@
               <ion-item>
                 <ion-item color="assertive" id="aplikasiPenjual-list-item4">
                     <ion-icon name="walk" item-left></ion-icon>
-                    {{mangkal.tempatMangkal}}
+                    <h2>{{mangkal.tempatMangkal}}</h2>
                   </ion-item>
               </ion-item>
               <ion-item-options side="right">
-                <button ion-button color="primary">
-                  <ion-icon name="ios-create"></ion-icon>
-                  Ubah
-                </button>
-                <button ion-button color="danger">
+                <button ion-button color="danger" (click)="hapusMangkal(mangkal.id)">
                     <ion-icon name="trash"></ion-icon>
                     Hapus
                   </button>
               </ion-item-options>
             </ion-item-sliding>
       <div id="aplikasiPenjual-markdown3" style="text-align:center;" class="show-list-numbers-and-dots">
-        <p style="color:#000000;font-size:10px;">
-          {{mangkal.jamMangkal}}
-        </p>
+        <p style="color:#000000;font-size:10px;"></p>
+          <h2>{{mangkal.jamMangkal}}</h2>
       </div>
       </ion-list>
   </ion-card>

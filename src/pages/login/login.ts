@@ -14,6 +14,7 @@ export class LoginPage {
 
   user = {} as User;
   loginMail: any;
+  isLogin:any;
 
   constructor(public navCtrl: NavController, 
     public navParams:NavParams, 
@@ -26,7 +27,8 @@ export class LoginPage {
       const result = this.af.auth.signInWithEmailAndPassword(user.email, user.password);
       if(result){
         this.loginMail= user.email;
-        this.navCtrl.setRoot(AplikasiPenjualPage, {email : this.loginMail});
+        this.isLogin = "isLogin";
+        this.navCtrl.setRoot(AplikasiPenjualPage, {email : this.loginMail, login : this.isLogin});
       }
     }
     catch(e){

@@ -2,7 +2,7 @@
 <widget id="com.mangkal.mangkal" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Mangkal</name>
     <description>Temukan Pedagang Kaki Lima Favoritmu</description>
-    <author email="mangkal@gmail.com" href="#">Mangkal Team</author>
+    <author email="mangkal@gmail.com">Mangkal Team</author>
     <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
@@ -85,6 +85,12 @@
     <plugin name="cordova-plugin-device" spec="^1.1.4" />
     <plugin name="cordova-plugin-splashscreen" spec="^4.0.3" />
     <plugin name="cordova-plugin-ionic-webview" spec="^1.1.16" />
+    <plugin name="cordova-plugin-camera" spec="^4.0.3" />
+    <plugin name="cordova.plugins.diagnostic" spec="^4.0.5" />
+    <plugin name="cordova-plugin-nativegeocoder" spec="^3.1.1">
+        <variable name="LOCATION_WHEN_IN_USE_DESCRIPTION" value="Use geocoder service" />
+    </plugin>
     <engine name="ios" spec="4.5.4" />
     <engine name="android" spec="6.3.0" />
+    <engine name="browser" spec="5.0.3" />
 </widget>
