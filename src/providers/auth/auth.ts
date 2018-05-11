@@ -4,6 +4,9 @@ import 'rxjs/add/operator/map';
 
 import { AngularFireAuth } from 'angularfire2/auth'
 import { Observable } from 'rxjs/Observable'
+import { LoginPage } from '../../pages/login/login';
+
+
 
 /*
   Generated class for the AuthProvider provider.
@@ -13,6 +16,8 @@ import { Observable } from 'rxjs/Observable'
 */
 @Injectable()
 export class AuthProvider {
+
+
 
   constructor(public af: AngularFireAuth) {
     console.log('Hello AuthProvider Provider');

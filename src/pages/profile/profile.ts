@@ -5,6 +5,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { LoginPage } from '../login/login';
 import { Observable } from 'rxjs/Observable';
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
+import { User } from '../../models/user';
 
 @Component({
   selector: 'page-profile',
@@ -12,6 +13,7 @@ import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 })
 export class ProfilePage {
 
+  user = {} as User;
   email : any;
   mangkal:Observable<any[]>;
   mangkalRef : AngularFireList<any>;
@@ -33,8 +35,13 @@ export class ProfilePage {
   }
 
   logOut(){
-    this.af.auth.signOut();
-    this.navCtrl.setRoot(LoginPage);
+    // this.af.auth.signOut();
+    // this.navCtrl.setRoot(LoginPage);
+    return Observable.create(observer =>{
+      this.user.email = null;
+      observer.next(true);
+      observer.complete();
+    })
   }
   
 }

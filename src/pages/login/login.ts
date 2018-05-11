@@ -1,15 +1,20 @@
-import { Component } from '@angular/core';
+import { Component, Injectable } from '@angular/core';
 import { NavController, NavParams, IonicPage } from 'ionic-angular';
 import { AplikasiPenjualPage } from '../aplikasi-penjual/aplikasi-penjual';
 import { User } from '../../models/user';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { ToastController } from 'ionic-angular';
+import { Observable } from 'rxjs/observable';
+import { AuthProvider } from '../../providers/auth/auth'
+import { auth } from 'Firebase';
 
 @IonicPage()
 @Component({
   selector: 'page-login',
   templateUrl: 'login.html'
 })
+
+@Injectable()
 export class LoginPage {
 
   user = {} as User;
@@ -44,7 +49,7 @@ export class LoginPage {
     toast.present();
   }
 
-  appPenjual(){
-    this.navCtrl.setRoot(AplikasiPenjualPage);
-  }
+  // appPenjual(){
+  //   this.navCtrl.setRoot(AplikasiPenjualPage);
+  // }
 }
